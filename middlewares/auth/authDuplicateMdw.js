@@ -1,4 +1,4 @@
-import db from "../database/database.js";
+import db from "../../database/database.js";
 export default async function authDuplicateMdw(req,res,next) {
     const {email} = req.body;
     try {
