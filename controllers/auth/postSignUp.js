@@ -17,7 +17,7 @@ export default async function postSignUp(req, res) {
     });
     await db.collection("logs").insertOne({
       email,
-      storage: "0",
+      storage: 0,
       hist:[],
     });
     res.sendStatus(201);
