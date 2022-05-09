@@ -9,7 +9,7 @@ export default async function authLoginJoiMdw(req, res, next) {
   });
   const authValidation = authSchema.validate(authReq, { abortEarly: false });
   if (authValidation.error) {
-    return res.status(400).send("Erro de sintaxe, requisição inválida!");
+    return res.status(400).send(authValidation.error.details);
   }
   next();
 }

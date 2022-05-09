@@ -9,7 +9,7 @@ export default async function postLogin(req, res) {
     const loginValidation = bcrypt.compareSync(password, user.password);
     if (user && loginValidation) {
      await db.collection("sessions").insertOne({
-        userID: user._id,
+        email,
         token,
       });
     }
