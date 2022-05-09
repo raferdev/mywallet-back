@@ -5,7 +5,7 @@ export default async function authLoginJoiMdw(req, res, next) {
     email: Joi.string()
       .email({ tlds: { allow: false } })
       .required(),
-    password: Joi.string().min(8).max(16).required(),
+    password: Joi.string().min(3).max(20).required(),
   });
   const authValidation = authSchema.validate(authReq, { abortEarly: false });
   if (authValidation.error) {
