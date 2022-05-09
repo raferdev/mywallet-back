@@ -7,6 +7,6 @@ import logStorageMdw from "../middlewares/logStorageMdw.js";
 import persistTokenMdw from "../middlewares/persistTokenMdw.js";
 import subStorageMdw from "../middlewares/subStorageMdw.js";
 const logsRoute = express.Router();
-logsRoute.post("/home/new-deposit",persistTokenMdw,logsJoiMdw,logStorageMdw,attStorageMdw,postNewDeb)
-logsRoute.post("/home/new-payment",persistTokenMdw,logsJoiMdw,logStorageMdw,subStorageMdw,postNewPay)
+logsRoute.post("/new-deposit",persistTokenMdw,logsJoiMdw,logStorageMdw,attStorageMdw,postNewDeb)
+logsRoute.post("/new-payment",persistTokenMdw,logsJoiMdw,logStorageMdw,subStorageMdw,postNewPay)
 export default logsRoute;
