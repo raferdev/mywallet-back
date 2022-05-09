@@ -5,7 +5,9 @@
   "description": "parte do projeto fullstack, pasta back-end",
   "main": "app.js",
   "scripts": {
-    "test": "npx nodemon app.js"
+    "test": "npx nodemon app.js",
+    "start": "node ./app.js",
+		"dev": "npx nodemon ./app.js"
   },
   "repository": {
     "type": "git",

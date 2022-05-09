@@ -14,4 +14,4 @@ app.use(authRoute);
 app.use(homeRoute);
 app.use(logsRoute);
 app.use(logoutRoute)
-app.listen(process.env.PORTA);
+app.listen(process.env.PORT);
