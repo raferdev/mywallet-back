@@ -1,14 +1,14 @@
 services:
-  back-batepapo-uol:
-    container_name: back-batepapo-uol
+  mywallet-back:
+    container_name: mywallet-back
     build: .
     restart: always
     env_file:
      - .env
     expose:
-      - $PORT_HOST
+      - $PORT
     ports:
-      - $PORT_HOST:$PORT_HOST
+      - $PORT:$PORT
     depends_on:
       - mongodb
 
