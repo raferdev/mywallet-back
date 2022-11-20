@@ -14,4 +14,6 @@ app.use(authRoute);
 app.use(homeRoute);
 app.use(logsRoute);
 app.use(logoutRoute)
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, ()=> {
+    console.log(`Hello i'm running on port = ${process.env.PORT}`)
+});
