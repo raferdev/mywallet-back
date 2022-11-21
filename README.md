@@ -16,7 +16,7 @@
 ---
 
 <p align="center"> 
-This is a backend part of FullStack project. The frontend you can see <a href="https://github.com/raferdev/mywallet-front">here</a>. This project was built using ReactJS, and simulate one wallet service, which user can register payments, transactions, and see your account history.
+This is a backend part of FullStack project. The frontend you can see <a href="https://github.com/raferdev/mywallet-front">here</a>. This project was built using NodeJS, and simulate one wallet service, which user can register payments, transactions, and see your account history.
 </p>
 
 ---
@@ -33,7 +33,7 @@ This is a backend part of FullStack project. The frontend you can see <a href="h
 
 ## 🧐 About <a name = "about"></a>
 
-This project was built on one week and encrease my consepts about javascript enviroment, using ReactJS, and NodeJS to create one web app completly. This backend simulate one web API that user can create one account and register acount transactions.You can clone and run the project on your machine, its better with frontend <a href="https://github.com/raferdev/mywallet-back">(link)</a>.
+This project was built on one week and encrease my consepts about javascript enviroment, using ReactJS, and NodeJS to create one web app completly. This backend simulate one web API that user can create one account and register account transactions.You can clone and run the project on your machine, its better with frontend <a href="https://github.com/raferdev/mywallet-back">(link)</a>.
 
 ---
 
@@ -130,58 +130,135 @@ Now you will need one tool to make requests and interact whith your API. Some fa
 
 **LET'S GO** - API description.
 
-**POST** - */participants* - API verify existing users online with same name and, if don't have, includes user on mongoDB.
+**POST** - */sign-in* - Send user credentials to API, email must be valid format and password need be a string with 3 - 20 length characters.
+
+```
+  {
+  "email":"",
+  "password":""
+  }
+```
+If are valid and registered credentials user can login and receive one token like below.
+
+*response:*
+```
+{
+  "token": "afbf3c09-bc88-424d-b3e2-ab042733a244"
+}
+```
+
+**POST** - */sign-up* - Send user credentials to API to register on MongoDB. Email must be valid format, password and name need be a string with 3 - 20 length characters.
 
 ```
   {
   "name":""
+  "email":"",
+  "password":""
   }
 ```
-This route have setTimeout to verify activity, if user frontend dont send new requests in 10 seconds, this user are removed.
+**GET** - */home/logs* - Send message to API redirect for one user or all chat.
 
-**GET** - */participants* - API return one array with online users.
-```
-  [{
-   "name":"john"
-  },{
-   "name":"will"
-  },...]
-```
-**POST** - */messages* - Send message to API redirect for one user or all chat.
-
-HEADER:
+header:
 ```
 {
-  "user":""
+  "authorization":"Bearer TOKEN"
 }
 ```
- BODY:
-```
-{
-  "to":"",
-  "text":"",
-  "type":""
-}
-```
-Valid types: ["message", "private_message"].
-
-"message": all users can see on chat.
-
-"private_message": only the one user you sended.
-
-**PUT** - */messages/:message_id* - User can edit the message, need id from mongoDB.
-
-```
-{
-  "to":"",
-  "text":"",
-  "type":""
-}
-```
-**DELETE** - */messages/:message_id* - User can delete the message.
+ body:
 ```
 {}
 ```
+*response:*
+
+```
+{
+  "_id": "637293ec0b25527b0d34716f",
+  "email": "exemple@exemple.com",
+  "storage": 97889,
+  "hist": [
+    {
+      "id": 1668453511312,
+      "date": "14/11 19:18",
+      "operation": "in",
+      "type": "New Job Freelancer",
+      "value": "100000"
+    },
+    {
+      "id": 1668453593732,
+      "date": "14/11 19:19",
+      "operation": "out",
+      "type": "Java Course",
+      "value": "1099"
+    }...
+  ]
+}
+```
+
+
+**POST** - */new-payment* - User can declare new payment on API
+
+header:
+
+```
+{
+  "authorization":"Bearer TOKEN"
+}
+```
+body:
+```
+{
+  "type":"",                 
+  "value": (integer number)
+}
+```
+*Type* is the description of transaction
+
+*response:*
+
+```
+Redirect to /home
+```
+
+**POST** - */new-deposit* -  User can declare new deposit on API
+```
+{
+  "authorization":"Bearer TOKEN"
+}
+```
+body:
+```
+{
+  "type":"",                 
+  "value": (integer number)
+}
+```
+*Type* is the description of transaction
+
+*response:*
+
+```
+Redirect to /home
+```
+
+**GET** - */logout* - User can close his session.
+
+header:
+```
+{
+  "authorization":"Bearer TOKEN"
+}
+```
+body:
+```
+{
+}
+```
+*response:*
+
+```
+Redirect to /sign-in
+```
+
 
 
 ---

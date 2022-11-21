@@ -1,27 +1,32 @@
 {
-  "name": "projeto13-mywallet-back",
+  "name": "mywallet-back",
   "type": "module",
-  "version": "1.0.0",
-  "description": "parte do projeto fullstack, pasta back-end",
+  "version": "1.1.0",
   "main": "app.js",
+  "description": "This is the backend part of full stack project, mywallet, which is based on one financial control system.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raferdev/mywallet-back.git"
+  },
+  "keywords": [
+    "Node",
+    "NodeJS",
+    "Express",
+    "Docker",
+    "MongoDB",
+    "Docker-Compose",
+    "Backend"
+  ],
+  "author": "raferdev@outlook.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raferdev/mywallet-back/issues"
+  },  
   "scripts": {
     "test": "npx nodemon app.js",
     "start": "node ./app.js",
-		"dev": "npx nodemon ./app.js"
+    "dev": "npx nodemon ./app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rafael-f/projeto13-mywallet-back.git"
-  },
-  "keywords": [
-    "fullstack"
-  ],
-  "author": "rafinha_fern@hotmail.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rafael-f/projeto13-mywallet-back/issues"
-  },
-  "homepage": "https://github.com/rafael-f/projeto13-mywallet-back#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "chalk": "^5.0.1",
